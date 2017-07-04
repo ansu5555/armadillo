@@ -1,7 +1,7 @@
 import os.path
 import zipfile
-
 from datetime import datetime
+
 from fpdf import FPDF
 from logbook import Logger, FileHandler
 from openpyxl import *
@@ -21,7 +21,8 @@ __libpath = ''
 __starttime = ''
 __datahandler = []
 
-#needed later part
+
+# needed later part
 # def readxl(sheetname):
 #     wb = load_workbook(sheetname)
 #     ws = wb['Sheet1']
@@ -94,7 +95,6 @@ def reportlogger(result, decription, screenshot=None):
 class ArmadilloRunner:
     def navigate(self, url):
         driver.get(url)
-        print(id(driver))
         reportlogger(True, 'Launched ' + url + ' on ' + driver.capabilities['browserName'])
 
     def wait(self, seconds):
@@ -211,6 +211,4 @@ class ArmadilloRunner:
                 zip_handler.write(os.path.abspath(os.path.join(resultpath, file)),
                                   os.path.basename(os.path.join(resultpath, file)))
         zip_handler.close()
-
-
 
