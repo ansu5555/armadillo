@@ -21,7 +21,8 @@ __libpath = ''
 __starttime = ''
 __datahandler = []
 
-#needed later part
+
+# needed later part
 # def readxl(sheetname):
 #     wb = load_workbook(sheetname)
 #     ws = wb['Sheet1']
@@ -94,7 +95,6 @@ def reportlogger(result, decription, screenshot=None):
 class ArmadilloRunner:
     def navigate(self, url):
         driver.get(url)
-        print(id(driver))
         reportlogger(True, 'Launched ' + url + ' on ' + driver.capabilities['browserName'])
 
     def wait(self, seconds):
