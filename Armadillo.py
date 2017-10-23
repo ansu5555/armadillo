@@ -1,5 +1,4 @@
 import os.path
-import zipfile
 from datetime import datetime
 
 from fpdf import FPDF
@@ -20,7 +19,6 @@ __datapath = ''
 __libpath = ''
 __starttime = ''
 __datahandler = []
-
 
 # needed later part
 # def readxl(sheetname):
@@ -205,10 +203,9 @@ class ArmadilloRunner:
         driver.quit()
         reportwriter.output(resultpath + '/' + starttime + '_ExecReport.pdf', 'F')
         # zip_handler is zipfile handler
-        zip_handler = zipfile.ZipFile(resultpath + '/archived/Result_' + starttime + '.zip', 'w')
-        for file in os.listdir(resultpath):
-            if os.path.isfile(os.path.join(resultpath, file)):
-                zip_handler.write(os.path.abspath(os.path.join(resultpath, file)),
-                                  os.path.basename(os.path.join(resultpath, file)))
-        zip_handler.close()
-
+        # zip_handler = zipfile.ZipFile(resultpath + '/archived/Result_' + starttime + '.zip', 'w')
+        # for file in os.listdir(resultpath):
+        #    if os.path.isfile(os.path.join(resultpath, file)):
+        #        zip_handler.write(os.path.abspath(os.path.join(resultpath, file)),
+        #                          os.path.basename(os.path.join(resultpath, file)))
+        # zip_handler.close()
